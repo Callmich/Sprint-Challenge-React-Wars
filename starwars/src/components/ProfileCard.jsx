@@ -10,12 +10,12 @@ const ProfileCard = (props) =>{
     return (
             <Col xs="6" md="4" xl="3">
                 <Card className="cards">
-                    <CardHeader>Name: {props.starWars.name}</CardHeader>
-                    <CardBody>
+                    <CardHeader className="name" >Name: {props.starWars.name}</CardHeader>
+                    <CardBody className="info">
                         <CardText>Birth Year: {props.starWars.birth_year}</CardText>
                         <CardTitle>Gender: {props.starWars.gender}</CardTitle> 
                     </CardBody>
-                    <CardFooter>Films: {(props.starWars.films).length}</CardFooter>
+                    <CardFooter className="films">Films: {(props.starWars.films).length}</CardFooter>
                 </Card>
             </Col>
 

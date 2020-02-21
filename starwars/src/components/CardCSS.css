@@ -3,6 +3,18 @@
     margin: 10px;
 }
 
+.name{
+    color: blue;
+}
+
+.info{
+    font-weight: bold;
+}
+
+.films{
+    font-family: Droid Sans Mono;
+}
+
 
 
 
