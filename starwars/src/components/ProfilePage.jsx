@@ -38,6 +38,14 @@ const ProfilePage = () => {
 
     }, [])
 
+    const getNextPage = async () => {
+        await axios
+            .get({nextPage})
+            .then(response => {
+                setChar(response.data.results)
+            } )
+        }
+
     return (
         <BigDiv>
             <Pagination aria-label="Page navigation">
@@ -45,7 +53,7 @@ const ProfilePage = () => {
                 <PaginationLink previous href="#" />
             </PaginationItem>
             <PaginationItem>
-                <PaginationLink next href={nextPage} />
+                <PaginationLink next href={getNextPage()} />
             </PaginationItem>
             </Pagination>
                     <Container>
