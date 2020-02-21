@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import ProfileCard from "./ProfileCard";
 import axios from "axios";
-import { Container, Row } from "reactstrap";
+import { Container, Row, Pagination, PaginationItem, PaginationLink  } from "reactstrap";
 import styled from "styled-components";
 
 
@@ -9,17 +9,17 @@ import styled from "styled-components";
 const ProfilePage = () => {
     const [char, setChar] = useState([])
 
-    const [page, setPage] = useState([])
+    const [nextPage, setNextPage] = useState()
 
-    const getCharacters = () => {
-        const response = axios.get("https://swapi.co/api/people")
+    useEffect(async () => {
+        const response = await axios.get("https://swapi.co/api/people")
         .then(response => {
-            setPage(response.data.next)
+            setNextPage(response.data.next)
         })
         .catch(error => {
             console.log("issue with page", error)
         })
-    }
+    }, [])
 
     const BigDiv = styled.div`
     height: 100vh;
@@ -40,7 +40,15 @@ const ProfilePage = () => {
 
     return (
         <BigDiv>
-            <Container>
+            <Pagination aria-label="Page navigation">
+            <PaginationItem>
+                <PaginationLink previous href="#" />
+            </PaginationItem>
+            <PaginationItem>
+                <PaginationLink next href={nextPage} />
+            </PaginationItem>
+            </Pagination>
+                    <Container>
                 <Row>
                     {char.map(function(starWars, index){
                         return <ProfileCard starWars={starWars} key={index}/>
