@@ -9,6 +9,18 @@ import styled from "styled-components";
 const ProfilePage = () => {
     const [char, setChar] = useState([])
 
+    const [page, setPage] = useState([])
+
+    const getCharacters = () => {
+        const response = axios.get("https://swapi.co/api/people")
+        .then(response => {
+            setPage(response.data.next)
+        })
+        .catch(error => {
+            console.log("issue with page", error)
+        })
+    }
+
     const BigDiv = styled.div`
     height: 100vh;
 `
@@ -17,7 +29,7 @@ const ProfilePage = () => {
         axios
             .get("https://swapi.co/api/people")
             .then(response => {
-                console.log(response.data.results)
+                console.log(response.data.next)
                 setChar(response.data.results)
             })
             .catch(error => {
