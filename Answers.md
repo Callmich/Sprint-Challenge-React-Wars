@@ -1,4 +1,4 @@
-# Answers
+<!-- # Answers
 
 1. What is React JS and what problems does it try and solve? Support your answer with concepts introduced in class and from your personal research on the web. 
     It is a library which is used for single page aplications (super excitied to get started on those). It makes life easier writting less JS and works very well with state changes where info in the page changes rendering a look new on the page. React handles these changes very well. It is not opinionated so you dont have to follow as strict of rules as you do in a framework.
@@ -13,4 +13,4 @@
     variables in a parent element that can be passed down to their children to be used. 
 
 1. What are side effects, and how do you sync effects in a React component to state or prop changes?
-    functions that when a page renders are triggered (unless you add in at the end the times inwhich it should run - this is put in an array)
+    functions that when a page renders are triggered (unless you add in at the end the times inwhich it should run - this is put in an array) -->
